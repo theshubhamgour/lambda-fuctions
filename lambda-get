@@ -1,0 +1,19 @@
+import json
+
+def lambda_handler(event, context):
+    # Log the event for debugging
+    print("Received event: " + json.dumps(event))
+    
+    # Prepare the response
+    response = {
+        "statusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": json.dumps({
+            "message": "Hello from Lambda!",
+            "input": event
+        })
+    }
+    
+    return response
